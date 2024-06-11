@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types';
+import ButtonNavBar from './Button.navbar';
 
-export default function NavBar({ pokemonIndex, setPokemonIndex, pokemonList }) {
-    const handlePrevious = () => {
-      setPokemonIndex(oldIndex => oldIndex - 1);
-    }
-    const handleNext = () => {
-      setPokemonIndex(oldIndex => oldIndex + 1);
-    }
-
+export default function NavBar({ setPokemonIndex, pokemonList }) {
     return (
         <nav>
-            {pokemonIndex > 0 ? (
-                <button onClick={handlePrevious}>Précédent</button>
-            ) : null}
-            {pokemonIndex < pokemonList.length - 1 ? (
-                <button onClick={handleNext}>Suivant</button>
-            ) : null}
+            {pokemonList.map((pokemon, index) => (
+                <ButtonNavBar
+                    index={index}
+                    key={index}
+                    setPokemonIndex={setPokemonIndex}
+                >
+                    {pokemon.name}
+                </ButtonNavBar>
+            ))}
         </nav>
     );
 }
