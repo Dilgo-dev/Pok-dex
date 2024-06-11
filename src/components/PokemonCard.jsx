@@ -1,8 +1,15 @@
-export default function PokemonCard() {
+import PropTypes from "prop-types";
+
+PokemonCard.propTypes = {
+    name: PropTypes.string,
+    src: PropTypes.string
+}
+
+export default function PokemonCard({ name, src }) {
     return (
         <figure>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur image"/>
-            <figcaption>Bulbasaur</figcaption>
+            { src ? <img src={src} alt={`${name} pokemon image`}/> : <p>???</p> }
+            <figcaption>{name}</figcaption>
         </figure>
     );
 }
