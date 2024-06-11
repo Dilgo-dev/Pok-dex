@@ -1,5 +1,10 @@
 import './App.css'
+import PokemonCard from './components/PokemonCard'
 
 export default function App() {
-    return <h1>Pokédex</h1>
+    return (
+        <div>
+            <PokemonCard />
+        </div>
+    );
 }
