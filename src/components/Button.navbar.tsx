@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export default function ButtonNavBar({ index, setPokemonIndex, children }) {
     const handleClick = () => {
+        if (children.toLowerCase() === "pikachu") alert("Pika pikachu !!!");
         setPokemonIndex(index);
     }
 
